@@ -5,7 +5,7 @@
 Instance 1 :
 
 ```
-$ bin/elasticsearch -Dcluster.name='elk-training' \
+$ bin/elasticsearch -Dcluster.name=elk-training \
 -Dhttp.port=9200 \
 -Dtransport.tcp.port=9300 \
 -Dpath.data=data/instance1 \
@@ -18,7 +18,7 @@ $ bin/elasticsearch -Dcluster.name='elk-training' \
 Instance 2 :
 
 ```
-$ bin/elasticsearch -Dcluster.name='elk-training' \
+$ bin/elasticsearch -Dcluster.name=elk-training \
 -Dhttp.port=9201 \
 -Dtransport.tcp.port=9301 \
 -Dpath.data=data/instance2 \
@@ -31,7 +31,7 @@ $ bin/elasticsearch -Dcluster.name='elk-training' \
 Instance 3 :
 
 ```
-$ bin/elasticsearch -Dcluster.name='elk-training' \
+$ bin/elasticsearch -Dcluster.name=elk-training \
 -Dhttp.port=9202 \
 -Dtransport.tcp.port=9302 \
 -Dpath.data=data/instance3 \
@@ -46,7 +46,7 @@ $ bin/elasticsearch -Dcluster.name='elk-training' \
 Instance 1 :
 
 ```
-$ bin/elasticsearch -Dcluster.name='elk-training' ^
+$ bin\elasticsearch -Dcluster.name=elk-training ^
 -Dhttp.port=9200 ^
 -Dtransport.tcp.port=9300 ^
 -Dpath.data=data/instance1 ^
@@ -59,7 +59,7 @@ $ bin/elasticsearch -Dcluster.name='elk-training' ^
 Instance 2 :
 
 ```
-$ bin/elasticsearch -Dcluster.name='elk-training' ^
+$ bin\elasticsearch -Dcluster.name=elk-training ^
 -Dhttp.port=9201 ^
 -Dtransport.tcp.port=9301 ^
 -Dpath.data=data/instance2 ^
@@ -72,7 +72,7 @@ $ bin/elasticsearch -Dcluster.name='elk-training' ^
 Instance 3 :
 
 ```
-$ bin/elasticsearch -Dcluster.name='elk-training' ^
+$ bin\elasticsearch -Dcluster.name=elk-training ^
 -Dhttp.port=9202 ^
 -Dtransport.tcp.port=9302 ^
 -Dpath.data=data/instance3 ^
