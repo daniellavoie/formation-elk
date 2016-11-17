@@ -8,7 +8,7 @@ Before inserting test data, we provide Elasticsearch instruction on how to index
 
 Do do so, reach out Kopf's Rest console from http://localhost:9200/_plugin/kopf/#!/rest.
 
-Then type the `/address` http resource into the path input text box. Set the request method to `POST`. Finally, you can copy the following json mapping into the http body text area :
+Then type the `/address` http resource into the path input text box. Set the request method to `PUT`. Finally, you can copy the following json mapping into the http body text area :
 
 ```
 {
