@@ -12,9 +12,11 @@ discovery.zen.ping.unicast.hosts
 ## Intégration des données
 
 * Détruire l'index `address` s'il est déjà présent.
-* Récré
+* Récréer l'index `address` avec un mapping adapté.
 * Préparer 3 instances logstash.
-* Diviser les fichiers de donnée brute 
+* Diviser les fichiers de données brutes de `fulldata` et configurer chaque instance logstash pour un dataset.
+* Purger le fichier `.sincedb` s'il est déjà présent.
+* Démarrer les 3 instances logstash.
 
 ## Suppression de l'index
 
