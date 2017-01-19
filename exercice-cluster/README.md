@@ -5,6 +5,8 @@ A partir de 3 noeuds, former un Cluster
 
 ## Configurations importantes
 
+network.host
+
 cluster.name
 
 discovery.zen.ping.unicast.hosts
