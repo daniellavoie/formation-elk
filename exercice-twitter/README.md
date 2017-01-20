@@ -163,3 +163,23 @@ output {
 	}
 }
 ```
+
+## Mapping Elasticsearch
+
+```
+PUT sf-tweets
+{
+  "mappings": {
+    "v1" : {
+      "properties": {
+        "@timestamp" : {
+          "type" : "date"
+        },
+        "location" : {
+          "type": "geo_point"
+        }
+      }
+    }
+  }
+}
+``` 
