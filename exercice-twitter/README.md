@@ -125,7 +125,9 @@ Le nouvel index qui doit accueillir les tweets doit au préalable avoir un mappi
 
 ```
 input {
-	twitter {
+  twitter {
+input {
+    twitter {
       consumer_key => "..."
       consumer_secret => "..."
       oauth_token => "..."
@@ -136,16 +138,16 @@ input {
 }
 
 filter {
-	if ![coordinates] {
-		# Retourne false
-		drop { }
-	}
+    if ![coordinates] {
+        # Retourne false
+        drop { }
+    }
 
-	date {
-		match => ["timestamp_ms", "UNIX_MS"]
-	}
+    date {
+        match => ["timestamp_ms", "UNIX_MS"]
+    }
 
-	mutate {
+    mutate {
       add_field => {
         "[location][lon]" => "%{[coordinates][coordinates][0]}"
         "[location][lat]" => "%{[coordinates][coordinates][1]}"
@@ -153,25 +155,25 @@ filter {
     }
 
     prune {
-    	whitelist_names => [ "text", "location" , "@timestamp" ]
+        whitelist_names => [ "text", "location" , "@timestamp" ]
     }
 }
 
 output {
-	elasticsearch {
-		hosts => ["localhost:9200"]
-		index => "sf-tweets"
-		document_type => "v1"
-		user => elastic
-		password => changeme
-	}
+    elasticsearch {
+        hosts => ["localhost:9200"]
+        index => "tweets-europe"
+        document_type => "v1"
+        user => elastic
+        password => changeme
+    }
 }
 ```
 
 ## Mapping Elasticsearch
 
 ```
-PUT sf-tweets
+PUT tweets-europe
 {
   "mappings": {
     "v1" : {
