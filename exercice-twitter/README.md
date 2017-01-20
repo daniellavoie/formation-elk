@@ -150,6 +150,10 @@ filter {
         "[location][lat]" => "%{[coordinates][coordinates][0]}"
         "[location][lon]" => "%{[coordinates][coordinates][1]}"
       }
+      convert => {
+        "[location][lat]" => "float"
+        "[location][lon]" => "float"
+      }
     }
 
     prune {
