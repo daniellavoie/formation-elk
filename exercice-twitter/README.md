@@ -126,11 +126,11 @@ Le nouvel index qui doit accueillir les tweets doit au préalable avoir un mappi
 ```
 input {
 	twitter {
-      consumer_key => "lCJFKOXymi0Z4lr4yYuNBrpSX"
-      consumer_secret => "PYgfHS0D2bKJQmpn3IGkQAdO9tyk7IGxHwbT0jMQFtythTSdDa"
-      oauth_token => "255309054-d1X1lhUNPionZ5xGghkdLgVlRp1RJz19xyXOUPyB"
-      oauth_token_secret => "g6ILV8HRdpkABLaJ4E16kBiDhyznYLhCVpUKR0vOd9zTl"
-      locations => "-122.75,36.8,-121.75,37.8"
+      consumer_key => "..."
+      consumer_secret => "..."
+      oauth_token => "..."
+      oauth_token_secret => "..."
+      locations => "-4.09,43.16,13.43,49.66"
       full_tweet => true
   }
 }
@@ -147,12 +147,8 @@ filter {
 
 	mutate {
       add_field => {
-        "[location][lat]" => "%{[coordinates][coordinates][0]}"
-        "[location][lon]" => "%{[coordinates][coordinates][1]}"
-      }
-      convert => {
-        "[location][lat]" => "float"
-        "[location][lon]" => "float"
+        "[location][lon]" => "%{[coordinates][coordinates][0]}"
+        "[location][lat]" => "%{[coordinates][coordinates][1]}"
       }
     }
 
@@ -162,8 +158,12 @@ filter {
 }
 
 output {
-	file {
-  		path => "/Users/daniellavoie/Projects/formation-elk/output-logstash/twitter-outpot.json"
+	elasticsearch {
+		hosts => ["localhost:9200"]
+		index => "sf-tweets"
+		document_type => "v1"
+		user => elastic
+		password => changeme
 	}
 }
 ```
