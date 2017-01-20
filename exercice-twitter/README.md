@@ -121,6 +121,10 @@ Le nouvel index qui doit accueillir les tweets doit au préalable avoir un mappi
 
 ## Configurer Logstash pour alimenter Elasticsearch
 
+### Récupération des coordonnées GPS
+
+http://boundingbox.klokantech.com/
+
 ## Configuration Logstash
 
 ```
