@@ -129,8 +129,6 @@ http://boundingbox.klokantech.com/
 
 ```
 input {
-  twitter {
-input {
     twitter {
       consumer_key => "..."
       consumer_secret => "..."
