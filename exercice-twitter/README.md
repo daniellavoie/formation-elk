@@ -123,5 +123,43 @@ Le nouvel index qui doit accueillir les tweets doit au préalable avoir un mappi
 
 ## Configuration Logstash
 
-A venir
+```
+input {
+	twitter {
+      consumer_key => "lCJFKOXymi0Z4lr4yYuNBrpSX"
+      consumer_secret => "PYgfHS0D2bKJQmpn3IGkQAdO9tyk7IGxHwbT0jMQFtythTSdDa"
+      oauth_token => "255309054-d1X1lhUNPionZ5xGghkdLgVlRp1RJz19xyXOUPyB"
+      oauth_token_secret => "g6ILV8HRdpkABLaJ4E16kBiDhyznYLhCVpUKR0vOd9zTl"
+      locations => "-122.75,36.8,-121.75,37.8"
+      full_tweet => true
+  }
+}
+
+filter {
+	if ![coordinates] {
+		# Retourne false
+		drop { }
+	}
+
+	date {
+		match => ["timestamp_ms", "UNIX_MS"]
+	}
+
+	mutate {
+      add_field => {
+        "[location][lat]" => "%{[coordinates][coordinates][0]}"
+        "[location][lon]" => "%{[coordinates][coordinates][1]}"
+      }
+    }
+
+    prune {
+    	whitelist_names => [ "text", "location" , "@timestamp" ]
+    }
+}
+
+output {
+	file {
+  		path => "/Users/daniellavoie/Projects/formation-elk/output-logstash/twitter-outpot.json"
+	}
+}
 ```
