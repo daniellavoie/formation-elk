@@ -11,66 +11,54 @@ Do do so, reach out Kopf's Rest console from http://localhost:9200/_plugin/kopf/
 Then type the `/address` http resource into the path input text box. Set the request method to `PUT`. Finally, you can copy the following json mapping into the http body text area :
 
 ```
+PUT address
 {
-    "mappings": {
-      "v1" :{
-        "properties": {
-          "nom_voie": {
-            "type": "string",
-            "analyzer": "french"
-          },
-          "id_fantoir": {
-            "type": "string",
-            "index": "not_analyzed"
-          },
-          "numero": {
-            "type": "string",
-            "index": "not_analyzed"
-          },
-          "rep": {
-            "type": "string",
-            "index": "not_analyzed"
-          },
-          "code_insee" : {
-            "type": "string",
-            "index": "not_analyzed"
-          },
-          "code_post": {
-            "type": "string",
-            "index": "not_analyzed"
-          },
-          "alias": {
-            "type": "string",
-            "analyzer": "french"
-          },
-          "nom_ld": {
-            "type": "string",
-            "index": "not_analyzed"
-          },
-          "nom_afnor":{
-            "type": "string",
-            "index": "not_analyzed"
-          },
-          "libelle_acheminement":{
-            "type": "string",
-            "analyzer": "french"
-          },
-          "x" : {
-             "type": "float"
-          },
-          "y": {
-            "type": "float"
-          },
-          "location":{
-            "type": "geo_point"
-          },
-          "nom_commune":{
-            "type": "string",
-            "analyzer": "french"
-          }
+  "mappings": {
+    "v1": {
+      "properties": {
+        "nom_voie": {
+          "type": "text",
+          "analyzer": "french"
+        },
+        "id_fantoir": {
+          "type": "keyword"
+        },
+        "numero": {
+          "type": "keyword"
+        },
+        "rep": {
+          "type": "keyword"
+        },
+        "code_insee": {
+          "type": "keyword"
+        },
+        "code_post": {
+          "type": "keyword"
+        },
+        "alias": {
+          "type": "text",
+          "analyzer": "french"
+        },
+        "nom_ld": {
+          "type": "keyword"
+        },
+        "nom_afnor": {
+          "type": "keyword"
+        },
+        "libelle_acheminement": {
+          "type": "text",
+          "analyzer": "french"
+        },
+        "location": {
+          "type": "geo_point"
+        },
+        "nom_commune": {
+          "type": "text",
+          "analyzer": "french"
         }
       }
     }
+  }
 }
 ```
 
